@@ -1,0 +1,81 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <form [formGroup]="userForm" class="p-6 form-container">
+            <div class="centered-content new">
+                <div class="card" id="mainbox">
+                    <div class="card-header docs-primary-header" id="mainheader">
+                        <div class="row">
+                            <div class="col-sm-8 col-70">
+                                <div id="height">{{Header}}Create User</div>
+                            </div>
+                            <div class="col-sm-4 col-30 right">
+                                <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                                    <mat-button-toggle id="iButton">
+                                        <mat-icon id="iconButton" (click)="onClear(true)">clear</mat-icon>
+                                    </mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card entryCard">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>Name</strong></label>
+                                        <input id='user_name' maxlength="50" autocomplete="off"
+                                            formControlName="user_name"
+                                            class="form-control form-control-sm border border-secondary" />
+                                    </div>
+                                    <div class="col-sm-12 cardTop" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>Role</strong></label>
+                                        <select class="form-select form-select-sm border border-secondary" id="userrole"
+                                            formControlName="user_role">
+                                            <option value="" disabled>--Select--</option>
+                                            <option *ngFor="let roll of roll" [value]="roll.name">{{roll.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 cardTop" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>Email</strong></label>
+                                        <input id="useremail" style="resize: none;" maxlength="255"
+                                            formControlName="user_email"
+                                            class="form-control form-control-sm border border-secondary" />
+                                    </div>
+                                    <div class="col-sm-12 cardTop" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>Password</strong></label>
+                                        <div class="input-wrapper" style="position: relative; width: 100%;">
+                                            <input id="password" type="{{ showPassword ? 'text' : 'password' }}" maxlength="255" 
+                                              formControlName="password"
+                                              class="form-control form-control-sm border border-secondary password-input" /> 
+                                            <button type="button" 
+                                              (click)="togglePasswordVisibility()" 
+                                              class="eye-icon">
+                                              <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i> 
+                                            </button>
+                                          </div>
+                                </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card entryCard cardTop">
+                            <div class="card-body" style="height: 58px;">
+                                <div class="row">
+                                    <div class="col-sm-12 right" *ngIf="this.receivedData == null">
+                                        <button id="matButton" mat-raised-button color="primary" 
+                                            (click)="onSubmit()">Save</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn" 
+                                        (click)="onClear(false)">Clear </button>
+                                    </div>
+                                    <div class="col-sm-12 right">
+                                        <button id="matButton" mat-raised-button color="primary" *ngIf="!isview == false"
+                                            (click)="onSubmit()">Update</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="!isview == false"
+                                            (click)="onClear(false)">Clear</button>
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="isview == false"
+                                            (click)="onExit()">Exit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

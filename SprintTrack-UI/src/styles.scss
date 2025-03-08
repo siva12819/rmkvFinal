@@ -1,0 +1,434 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'scss/variables';
+
+/* fonts-icon */
+@import 'scss/fonts/fontawesome/scss/fontawesome';
+@import 'scss/fonts/feather/iconfont';
+
+@import 'scss/general';
+@import 'scss/generic';
+@import 'scss/mixins/function';
+
+/* important element */
+@import 'scss/menu/menu-lite';
+
+/* basic elements */
+@import 'scss/theme-elements/theme-elements';
+
+
+@import 'scss/custom';
+
+
+@import 'scss/common';
+
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+.card-body {
+    padding: 15px !important;
+}
+
+.pcoded-header .input-group .input-group-text,
+.pcoded-header a,
+.pcoded-header dropdown-toggle {
+    color: white;
+}
+
+.pcoded-navbar {
+    background: white;
+    color: black;
+}
+
+.pcoded-navbar .pcoded-submenu {
+    background: white;
+}
+
+.b-brand .b-bg {
+    background: linear-gradient(-135deg, #97a2e9 0%, #4253be 100%);
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.pcoded-navbar .header-logo {
+    height: 45px;
+    padding: 5px 10px;
+}
+
+.pcoded-navbar .pcoded-menu-caption {
+    color: black;
+}
+
+.pcoded-navbar .mobile-menu {
+    height: 45px;
+    right: 5px;
+}
+
+.pcoded-navbar a {
+    color: black;
+}
+
+.pcoded-header {
+    background: #303F9F;
+    min-height: 45px;
+}
+
+.cardTop {
+    margin-top: 15px !important;
+}
+
+.card {
+    margin-bottom: 0px;
+}
+
+.mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: #303F9F;
+    --mdc-protected-button-label-text-color: white;
+}
+
+html .mat-mdc-icon-button.mat-primary {
+    --mdc-icon-button-icon-color: #303F9F;
+}
+
+.mat-mdc-tab-label-container {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    z-index: 1;
+    height: 35px;
+}
+
+.mat-mdc-tab-header {
+    --mdc-secondary-navigation-tab-container-height: 35px;
+}
+
+.mat-calendar-header {
+    padding: 8px 8px 0 8px;
+    background-color: #303F9F;
+    color: #fff;
+}
+
+.mdc-button .mdc-button__label {
+    position: relative;
+    color: white;
+    font-size: 12px;
+}
+
+.mat-pseudo-checkbox {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.mat-mdc-option {
+    min-height: 32px !important;
+}
+
+.mat-mdc-option .mdc-list-item__primary-text {
+    font-size: 12px !important;
+}
+
+.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after {
+    width: 7px !important;
+    height: 3px !important;
+}
+
+.mdc-radio__background {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.mdc-radio {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.mat-mdc-radio-button .mdc-radio {
+    padding: 4px !important;
+}
+
+.mdc-form-field>label {
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 2px !important;
+    padding-right: 0;
+    order: 0;
+    font-size: 12px !important;
+}
+
+.mdc-radio__inner-circle {
+    top: 0px !important;
+    left: 0px !important;
+    border-width: 7px !important;
+}
+
+.mat-mdc-select-value-text {
+    font-size: 12px !important;
+}
+
+
+.lSelect .mat-mdc-select-arrow svg {
+    fill: currentColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white !important
+}
+
+.bSelect.mat-mdc-icon-button.mat-mdc-button-base {
+    --mdc-icon-button-state-layer-size: 30px !important;
+    width: var(--mdc-icon-button-state-layer-size) !important;
+    height: var(--mdc-icon-button-state-layer-size) !important;
+    padding: 0px !important;
+    cursor: pointer !important;
+}
+
+.gSelect.mat-mdc-icon-button.mat-mdc-button-base {
+    --mdc-icon-button-state-layer-size: 22px !important;
+    width: var(--mdc-icon-button-state-layer-size) !important;
+    height: var(--mdc-icon-button-state-layer-size) !important;
+    padding: 0px !important;
+    cursor: pointer !important;
+    margin-top: -2px;
+}
+
+.app.indigo-light .mat-mdc-button {
+    --mdc-text-button-label-text-color: white !important;
+}
+
+
+.dashDate .mdc-text-field--outlined.mdc-text-field--disabled .mdc-notched-outline__leading,
+.dashDate .mdc-text-field--outlined.mdc-text-field--disabled .mdc-notched-outline__notch,
+.dashDate .mdc-text-field--outlined.mdc-text-field--disabled .mdc-notched-outline__trailing {
+    border-color: white !important;
+}
+
+.dashDate .mdc-text-field--outlined.mdc-text-field--disabled .mdc-text-field__input {
+    color: white;
+}
+
+.dashDate .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.dashDate .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.dashDate .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: white !important;
+}
+
+.dashDate .mat-toolbar .mat-mdc-button-base.mat-mdc-button-base.mat-unthemed {
+    --mdc-text-button-label-text-color: inherit;
+    --mdc-outlined-button-label-text-color: inherit;
+    color: white !important;
+}
+
+.dashDate .mat-mdc-icon-button svg {
+    color: white !important;
+}
+
+.dashDate .mat-mdc-select-value-text {
+    color: white !important;
+}
+
+.dashDate .mat-mdc-select-value {
+    margin-top: -3px;
+}
+
+.dashDate .mat-mdc-select-arrow svg {
+    fill: white !important;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+    height: 29px !important;
+    border-radius: 0px !important;
+}
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+    height: 29px !important;
+    border-radius: 0px !important;
+}
+
+.mat-mdc-form-field-infix {
+    font-size: 12px;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 4px;
+    padding-bottom: 16px;
+    border-radius: 0px !important;
+}
+
+.mat-mdc-form-field-icon-prefix,
+.mat-mdc-form-field-icon-suffix {
+    top: -12px;
+    right: -8px;
+}
+
+.mat-mdc-icon-button svg,
+.mat-mdc-icon-button img {
+    width: 22px;
+    height: 22px;
+}
+
+.mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
+    padding-right: 0;
+    margin-bottom: -30px;
+}
+
+.mat-mdc-checkbox label {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#buttonTop {
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+}
+
+#buttonTop .mat-icon {
+    -webkit-user-select: none;
+    user-select: none;
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 18px;
+    width: 18px;
+    overflow: hidden;
+}
+
+#textarea {
+    height: auto;
+    resize: none;
+}
+
+.mdc-dialog__surface {
+    overflow-y: inherit;
+}
+
+.mat-mdc-standard-chip .mdc-evolution-chip__text-label {
+    font-size: 12px;
+    line-height: 17px !important;
+}
+
+#matButton {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.form-control {
+    font-family: 'Roboto', sans-serif !important;
+    margin-top: 8px !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1a9eff;
+    border-color: #1a9eff;
+}
+
+.form-select-sm {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    font-size: 13px;
+}
+
+.mat-mdc-standard-chip {
+    height: 22px;
+}
+
+.mat-mdc-standard-chip .mdc-evolution-chip__checkmark {
+    height: 14px;
+    width: 15px;
+}
+
+.mat-mdc-standard-chip .mdc-evolution-chip__graphic {
+    width: 12px;
+}
+
+.mdc-evolution-chip-set .mdc-evolution-chip {
+    margin-left: 2px;
+}
+
+.labelC {
+    color: #303F9F;
+}
+
+.bold {
+    font-weight: 500 !important;
+}
+
+
+.mdc-checkbox__background {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.mdc-checkbox {
+    padding: 9px !important;
+    margin: 0px !important;
+    padding-left: 0px !important;
+}
+
+.checkT {
+    margin-top: -3px;
+    padding: -18px;
+    margin-bottom: -3px;
+}
+
+.table-scroll thead th {
+    color: #fff;
+    position: sticky;
+    background-color: #303F9F;
+    top: 0;
+    z-index: 2;
+    font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Noto Sans", oxygen, ubuntu, cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.custom-select,
+.form-control {
+    background: white;
+    padding: 0px;
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.mat-button-toggle-checked .mat-button-toggle-button:has(.mat-button-toggle-checkbox-wrapper) {
+    padding-left: 0px !important;
+}
+
+.card .card-header {
+    background-color: transparent ;
+     border-bottom: 0px solid #f1f1f1;
+    padding: 20px 25px;
+    position: relative;
+}
+
+button.mat-menu-item {
+    background-color: white;
+    line-height: 25px;
+    height: 30px;
+    border-top: 1px solid#c2cfd6;
+}
+
+#excel {
+    color: green;
+    margin-right: 5px;
+}
+
+.mat-mdc-menu-content {
+    height: 50px !important;
+    margin: -11px !important;
+    padding: 0px 0  !important;
+    outline: -23px  !important;
+}
+
+.mat-mdc-dialog-surface {
+    overflow-y: clip !important;
+}
+

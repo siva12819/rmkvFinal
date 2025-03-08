@@ -1,0 +1,143 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <div class="centered-content list">
+            <div class="card" id="mainbox">
+                <div class="card-header docs-primary-header" id="mainheader">
+                    <div class="row">
+                        <div class="col-sm-8 col-70">
+                            <div id="height">Profile List</div>
+                        </div>
+                        <div class="col-sm-4 col-30 right">
+                            <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                                <mat-button-toggle id="iButton">
+                                    <mat-icon id="iconButton" (click)="addProfile()">add</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle [matMenuTriggerFor]="menu" id="iButton">
+                                    <mat-icon id="iconButton">more_vert</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle id="iButton">
+                                    <mat-icon id="iconButton" (click)="onExit()">clear</mat-icon>
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4" fxLayout="row" fxLayoutAlign="start center">
+                                    <label class="labelWidthD"><strong>Search Bar</strong></label>
+                                    <input id="searchBar" type="text" placeholder="UserName UserEmail UserRole"
+                                        class="form-control form-control-sm border border-secondary"
+                                        [(ngModel)]="searchString" (keyup)="searchItem()" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card tableCard cardTop">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="table-scroll" id="exportTable">
+                                        <table border="1">
+                                            <thead *ngIf="flag" class="docs-primary-header">
+                                                <tr>
+                                                    <th id="columnCenter" colspan="6">Profile List
+                                                    </th>
+                                                </tr>
+                                                <tr>
+
+                                                </tr>
+                                            </thead>
+                                            <thead class="docs-primary-header">
+                                                <tr>
+                                                    <th id="headerSno">S.No</th>
+                                                    <th id="headerName">User Name</th>
+                                                    <th id="headerMail">User Email</th>
+                                                    <th id="headerDate">Role</th>
+                                                    <th id="headerDate">Notification</th>
+                                                    <th *ngIf="!flag" id="headerLast">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="datachange">
+                                                <tr *ngFor="let Profile of FilteredProfileList; let i = index;"
+                                                    [ngClass]="{'red': Profile.active === false}">
+                                                    <td id="columnCenter">{{i + 1}}</td>
+                                                    <td id="columnLeft">{{Profile.user_name}}</td>
+                                                    <td id="columnLeft">{{Profile.user_email}}
+                                                    </td>
+                                                    <td id="columnLeft">{{Profile.user_role}}
+                                                    </td>
+                                                    <td id="columnLeft">{{Profile.user_notification}}</td>
+                                                    <td  *ngIf="!flag" id="columnCenter">
+                                                        <div>
+                                                            <button mat-icon-button color="primary" class="bSelect"
+                                                                (click)="editprofile(Profile,false)"
+                                                                matTooltip="View this row"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="View this row"
+                                                                    class="f-14">remove_red_eye</mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button color="primary" class="bSelect"
+                                                                [disabled]="Profile.active === false"
+                                                                matTooltip="Edit this row"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    (click)="editprofile(Profile,true)"
+                                                                    aria-label="Edit this row"
+                                                                    class="f-14">edit</mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button color="primary"
+                                                                matTooltip="Active this row" class="bSelect"
+                                                                (click)="onClickActive(i)"
+                                                                [disabled]="Profile.active === true"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="Deactive this row"
+                                                                    class="f-14">check_circle</mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button color="primary"
+                                                                matTooltip="Deactive this row" class="bSelect"
+                                                                (click)="onClickDeactivate(i)"
+                                                                [disabled]="Profile.active === false"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="Deactive this row"
+                                                                    class="f-14">cancel</mat-icon>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card exitCard cardTop">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 right">
+                                    <button mat-raised-button id="matButton" color="warn"
+                                        (click)="onExit()">Exit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ****************************************** EXPORT ********************************************** -->
+<mat-menu #menu="matMenu">
+    <button (click)="exportToExcel()" mat-menu-item>
+        <i id="excel" class="fas fa-file-excel" aria-hidden="true"></i>
+        <span>Export To Excel</span>
+    </button>
+</mat-menu>

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.1.66" />
+      <PackageReference Include="MediatR" Version="12.4.1" />
+      <PackageReference Include="Npgsql" Version="9.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SprintTrack.Common\SprintTrack.Common.csproj" />
+      <ProjectReference Include="..\SprintTrack.Data\SprintTrack.Data.csproj" />
+      <ProjectReference Include="..\SprintTrack.Domain\SprintTrack.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

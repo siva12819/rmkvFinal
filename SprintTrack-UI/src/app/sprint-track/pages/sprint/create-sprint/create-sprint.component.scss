@@ -1,0 +1,319 @@
+// --------------------- Screen Based CSS Start ------------------- //
+
+.new {
+    width: 650px;
+}
+
+.list {
+    width: 1250px;
+}
+
+.aTop {
+    padding-top: 24px;
+}
+
+.mat-icon-button .mat-icon,
+.mat-icon-button i {
+    line-height: 20px;
+}
+
+.labelWidthD {
+    margin-bottom: 8px;
+}
+
+.form-control {
+    margin-top: 5px;
+}
+
+.mat-calendar-header {
+    background: #303f9f;
+    color: #fff;
+}
+
+.labelWidthD {
+    margin-bottom: 10px;
+}
+
+.form-select {
+    margin-top: 8px;
+}
+
+.example-full-width {
+    width: 175px;
+}
+
+.labelWidthC {
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.labelWidthE {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.labelWidthF {
+    margin-bottom: 9px;
+}
+/* Highlight important fields */
+.important-field {
+    border: 2px solid #d62c27; /* Red border */
+  }
+  
+  .important-field-label {
+    font-weight: bold;
+    color: #d62c27; /* Red color for label */
+  }
+  
+  .important-field::placeholder {
+    color: #d62c27; /* Optional: Change the placeholder text color */
+  }
+  
+  .important-field-container {
+    margin-bottom: 15px;
+  }
+  
+
+
+// --------------------- Screen Based CSS End ------------------- //
+
+// --------------------- Table Css Start ------------------- //
+
+
+#filesTop {
+    margin-top: 5px;
+}
+
+
+.hide {
+    text-decoration: underline !important;
+}
+
+.table-scroll td {
+    padding: 4px !important;
+}
+
+.table-scroll {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin: auto;
+    overflow: auto;
+    height: 328px;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 291px;
+    min-width: 300px;
+    background: white;
+    height: 291px;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(1) {
+    min-width: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(2) {
+    min-width: 110px;
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(3) {
+    min-width: 110px;
+    width: 110px;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(4) {
+    min-width: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(5) {
+    min-width: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(6) {
+    min-width: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(7) {
+    min-width: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(8) {
+    min-width: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(9) {
+    min-width: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-right: 0px;
+}
+
+.mat-table-fixed mat-header-cell:nth-child(10) {
+    min-width: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-left: 1px solid white;
+}
+
+.mat-table-fixed mat-cell:nth-child(1) {
+    min-width: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-cell:nth-child(2) {
+    min-width: 110px;
+    width: 110px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-table-fixed mat-cell:nth-child(3) {
+    min-width: 110px;
+    width: 110px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-table-fixed mat-cell:nth-child(4) {
+    min-width: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-table-fixed mat-cell:nth-child(5) {
+    min-width: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-table-fixed mat-cell:nth-child(6) {
+    min-width: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-table-fixed mat-cell:nth-child(7) {
+    min-width: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.mat-table-fixed mat-cell:nth-child(8) {
+    min-width: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mat-table-fixed mat-cell:nth-child(9) {
+    min-width: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-right: 0px;
+}
+
+.mat-table-fixed mat-cell:nth-child(10) {
+    min-width: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+::ng-deep .mat-tooltip {
+    font-size: 14px;
+}
+
+// --------------------- Table Css End ------------------- //
+
+// --------------------- Responsive Layout Start ------------------- //
+
+@media only screen and (min-device-width: 1600px) and (max-device-width: 1680px) {}
+
+@media only screen and (min-device-width: 1400px) and (max-device-width: 1440px) {}
+
+@media only screen and (min-device-width: 1360px) and (max-device-width: 1366px) {}
+
+@media only screen and (min-device-width: 1280px) and (max-device-width: 1300px) {}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1152px) {
+    .list {
+        width: 99%;
+    }
+
+    .pR {
+        padding-right: 0px;
+    }
+
+    .table-container {
+        max-height: 308px;
+        min-width: 300px;
+        height: 308px;
+    }
+}
+
+// --------------------- Responsive Layout End ------------------- //

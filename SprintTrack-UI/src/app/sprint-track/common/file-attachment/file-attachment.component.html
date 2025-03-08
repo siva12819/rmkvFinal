@@ -1,0 +1,255 @@
+
+<div class="centered-content list">
+    <div class="card" id="mainbox">
+        <div class="card-header docs-primary-header" id="mainheader">
+            <div class="row">
+                <div class="col-sm-8 col-70">
+                    <div id="height">Attach Files</div>
+                </div>
+                <div class="col-sm-4 col-30 right">
+                    <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                        <mat-button-toggle id="iButton">
+                            <mat-icon (click)="onClear()" id="iconButton">clear</mat-icon>
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card tableCard cardTop">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-scroll" id="exportTable">
+                                <table border='1'>
+                                    <thead style="background-color: aliceblue;">
+                                        <tr>
+                                            <th>Upload</th>
+                                            <th>Progress</th>
+                                            <th>View/Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td
+                                                style="text-align: center;vertical-align: middle;width:8%;padding:4px !important">
+                                                <div class="upload-btn-wrapper">
+                                                    <button [disabled]='isCancelled' class="btn">Browse</button>
+                                                    <input #docInput1 [disabled]='isCancelled'
+                                                        (change)="uploadDocument($event,0)" type="file" name="myfile" />
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:32%">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                                        role="progressbar" [style.width.%]="attachment[0].Progress"
+                                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                                                        style="width: 85%">
+                                                        {{attachment[0].Progress}} %</div>
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:30%">
+                                                <label
+                                                    *ngIf="document1 != undefined || document1 != null &&  objAttachView.file_path1 == ''"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() + tempFile1"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="document1 != undefined || document1 != null && objAttachView.file_path1 == ''"
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide" (click)='openRemoveTempFileConfirmationDialog(0)'>
+                                                    Remove File
+                                                </label>
+
+                                                <label
+                                                    *ngIf="objAttachView.file_path1 != '' && objAttachView.file_path1 != null"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() +  objAttachView.file_path1"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="objAttachView.file_path1 != '' && objAttachView.file_path1 != null"
+                                                    (click)='openRemoveFileConfirmationDialog(0)'
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide">
+                                                    Remove File
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="text-align: center;vertical-align: middle;width:8%;padding:4px !important">
+                                                <div class="upload-btn-wrapper">
+                                                    <button [disabled]='isCancelled' class="btn">Browse</button>
+                                                    <input #docInput2 [disabled]='isCancelled'
+                                                        (change)="uploadDocument($event,1)" type="file" name="myfile" />
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:32%">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                                        role="progressbar" [style.width.%]="attachment[1].Progress"
+                                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                                                        style="width: 85%">
+                                                        {{attachment[1].Progress}} %</div>
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:30%">
+                                                <label
+                                                    *ngIf="document2 != undefined || document2 != null &&  objAttachView.file_path2 == ''"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() + tempFile2"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="document2 != undefined || document2 != null && objAttachView.file_path2 == '' "
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide" (click)='openRemoveTempFileConfirmationDialog(1)'>
+                                                    Remove File
+                                                </label>
+                                                <label
+                                                    *ngIf="objAttachView.file_path2 != ''  && objAttachView.file_path2 != null"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() +  objAttachView.file_path2"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="objAttachView.file_path2 != '' && objAttachView.file_path2 != null"
+                                                    (click)='openRemoveFileConfirmationDialog(1)'
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide">
+                                                    Remove File
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="text-align: center;vertical-align: middle;width:8%;padding:4px !important">
+                                                <div class="upload-btn-wrapper">
+                                                    <button [disabled]='isCancelled' class="btn">Browse</button>
+                                                    <input #docInput3 [disabled]='isCancelled'
+                                                        (change)="uploadDocument($event,2)" type="file" name="myfile" />
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:32%">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                                        role="progressbar" [style.width.%]="attachment[2].Progress"
+                                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                                                        style="width: 85%">
+                                                        {{attachment[2].Progress}} %</div>
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:30%">
+                                                <label
+                                                    *ngIf="document3 != undefined || document3 != null &&  objAttachView.file_path3 == ''"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() + tempFile3"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="document3 != undefined || document3 != null && objAttachView.file_path3 == '' "
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide" (click)='openRemoveTempFileConfirmationDialog(2)'>
+                                                    Remove File
+                                                </label>
+                                                <label
+                                                    *ngIf="objAttachView.file_path3 != '' && objAttachView.file_path3 != null"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() +  objAttachView.file_path3"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="objAttachView.file_path3 != '' && objAttachView.file_path3 != null"
+                                                    (click)='openRemoveFileConfirmationDialog(2)'
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide">
+                                                    Remove File
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                style="text-align: center;vertical-align: middle;width:8%;padding:4px !important">
+                                                <div class="upload-btn-wrapper">
+                                                    <button [disabled]='isCancelled' class="btn">Browse</button>
+                                                    <input #docInput4 [disabled]='isCancelled'
+                                                        (change)="uploadDocument($event,3)" type="file" name="myfile" />
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:32%">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                                                        role="progressbar" [style.width.%]="attachment[3].Progress"
+                                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                                                        style="width: 85%">
+                                                        {{attachment[3].Progress}} %</div>
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align:middle;padding:4px !important;width:30%">
+                                                <label
+                                                    *ngIf="document4 != undefined || document4 != null &&  objAttachView.file_path4 == ''"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() + tempFile4"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="document4 != undefined || document4 != null && objAttachView.file_path4 == '' "
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide" (click)='openRemoveTempFileConfirmationDialog(3)'>
+                                                    Remove File
+                                                </label>
+                                                <label
+                                                    *ngIf="objAttachView.file_path4 != '' && objAttachView.file_path4 != null"
+                                                    style="margin-bottom: 0px;padding-top: 11px;">
+                                                    <a [href]="_localStorage.getHRDocumentURL() +  objAttachView.file_path4"
+                                                        target="_blank" id="hide">
+                                                        View File
+                                                    </a>
+                                                </label>&nbsp;&nbsp;
+                                                <label
+                                                    *ngIf="objAttachView.file_path4 != '' && objAttachView.file_path4 != null"
+                                                    (click)='openRemoveFileConfirmationDialog(3)'
+                                                    style="margin-bottom: 0px;padding-top: 11px;color: red;cursor: pointer;"
+                                                    id="hide">
+                                                    Remove File
+                                                </label>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card exitCard cardTop">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12" id="right">
+                            <button *ngIf="_data.view != true" id="matButton" mat-raised-button color="primary"
+                                (click)="addFileAttachment()">Save</button>&nbsp;
+                            <button id="matButton" mat-raised-button color="warn" (click)="onClear()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

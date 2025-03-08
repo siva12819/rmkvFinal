@@ -1,0 +1,161 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <div class="centered-content list">
+            <div class="card" id="mainbox">
+                <div class="card-header docs-primary-header" id="mainheader">
+                    <div class="row">
+                        <div class="col-sm-8 col-70">
+                            <div id="height">Ticket List</div>
+                        </div>
+                        <div class="col-sm-4 col-30 right">
+                            <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                                <mat-button-toggle id="iButton">
+                                    <mat-icon id="iconButton" (click)="addTicket()">add</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle [matMenuTriggerFor]="menu" id="iButton">
+                                    <mat-icon id="iconButton">more_vert</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle id="iButton">
+                                    <mat-icon (click)="onExit()" id="iconButton">clear</mat-icon>
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4" fxLayout="row" fxFlexAlign="start center">
+                                    <label class="labelWidthD"><strong>Search</strong></label>
+                                    <input id="ticketsearch" type="text" class="form-control form-control-sm border border-secondary" />
+                                </div>
+                                <!-- <div class="col-sm-4">
+                                    <label id="labelheight"><strong>From Date</strong></label>
+                                    <mat-form-field appearance="outline" id="matDate" class="example-full-width">
+                                        <input matInput id="fromDate" [(ngModel)]="objLoad.from_date" #autocomplete
+                                            (keyup)="validateFromDate()" (focusout)="validateFromDate()" [min]="minDate"
+                                            [max]="maxDate" (keypress)="dateValidation.numberOnly($event)"
+                                            autocomplete="off">
+                                        <input type="hidden" [(ngModel)]="fromDate1" [matDatepicker]="fromPicker"
+                                            placeholder="Choose a date" [min]="minimumDate" [max]="maximumDate"
+                                            (dateChange)="objLoad.from_date = dateValidation.toFormattedDate($event.value)">
+                                        <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                                        <mat-datepicker #fromPicker></mat-datepicker>
+                                    </mat-form-field>
+                                </div> -->
+                                <!-- <div class="col-sm-4">
+                                    <label id="labelheight"><strong>To Date</strong></label>
+                                    <mat-form-field appearance="outline" id="matDate" class="example-full-width">
+                                        <input matInput id="toDate" [(ngModel)]="objLoad.to_date" #autocomplete
+                                            (keyup)="validateToDate()" (focusout)="validateToDate()"
+                                            [min]="objLoad.from_date" [max]="maxDate"
+                                            (keypress)="dateValidation.numberOnly($event)" autocomplete="off">
+                                        <input type="hidden" [(ngModel)]="toDate1" [matDatepicker]="toPicker"
+                                            placeholder="Choose a date" [min]="fromDate1" [max]="maximumDate"
+                                            (dateChange)="objLoad.to_date = dateValidation.toFormattedDate($event.value)">
+                                        <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+                                        <mat-datepicker #toPicker></mat-datepicker>
+                                    </mat-form-field>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card tableCard cardTop">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="table-scroll" id="exportTable">
+                                        <table border='1'>
+                                            <thead class="docs-primary-header">
+                                                <tr>
+                                                    <th id="headerSno">S.No</th>
+                                                    <th id="headerName">Ticket Title</th>
+                                                    <th id="headerName">Description</th>
+                                                    <th id="headerNo">Ticket Type</th>
+                                                    <th id="headerDate">Assignee</th>
+                                                    <th id="headerDate">Priority</th>
+                                                    <th id="headerDate">Sprint</th>
+                                                    <th id="headerDate">Status</th>
+                                                    <th id="headerDate">Estimated</th>
+                                                    <th id="headerLast">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="datachange">
+                                                <tr *ngFor="let ticket of TicketList; let i = index;">
+                                                    <td id="columnCenter">
+                                                        {{i+1}}
+                                                    </td>
+                                                    <td id="columnLeft">{{ticket.title}}</td>
+                                                    <td id="columnLeft">{{ticket.description}}</td>
+                                                    <td id="columnLeft">{{ticket.type}}</td>
+                                                    <td id="columnLeft">{{ticket.user_id}}</td>
+                                                    <td id="columnLeft">{{ticket.priority}}</td>
+                                                    <td id="columnLeft">{{ticket.sprint_id}}</td>
+                                                    <td id="columnLeft">{{ticket.status}}</td>
+                                                    <td id="columnRight">{{ticket.estimated}}</td>
+                                                    <td id="columnCenter">
+                                                        <div>
+                                                            <button mat-icon-button color="primary" class="bSelect"
+                                                                (click)="editTicket(ticket,false)"
+                                                                matTooltip="View this row"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="View this row" class="f-14">
+                                                                    remove_red_eye
+                                                                </mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button color="primary" class="bSelect"
+                                                                matTooltip="Edit this row"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    (click)="editTicket(ticket,true)"
+                                                                    aria-label="Edit this row" class="f-14">
+                                                                    edit
+                                                                </mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button color="warn"
+                                                                matTooltip="Delete This Row" class="bSelect"
+                                                                (click)="deleteTicket(i)"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="View Row" class="f-14">
+                                                                    delete
+                                                                </mat-icon>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card exitCard cardTop">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 right">
+                                    <button mat-raised-button id="matButton" (click)="onExit()"
+                                        color="warn">Exit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ****************************************** EXPORT ********************************************** -->
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <i id="pdf" class="fas fa-file-pdf" aria-hidden="true"></i>
+        <span>Export To PDF</span>
+    </button>
+    <button mat-menu-item>
+        <i id="excel" class="fas fa-file-excel" aria-hidden="true"></i>
+        <span>Export To Excel</span>
+    </button>
+</mat-menu>

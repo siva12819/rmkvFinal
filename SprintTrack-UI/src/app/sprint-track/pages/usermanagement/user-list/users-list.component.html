@@ -1,0 +1,144 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <div class="centered-content list">
+            <div class="card" id="mainbox">
+                <div class="card-header docs-primary-header" id="mainheader">
+                    <div class="row">
+                        <div class="col-sm-8 col-70">
+                            <div id="height">Users List</div>
+                        </div>
+                        <div class="col-sm-4 col-30 right">
+                            <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                                <mat-button-toggle id="iButton">
+                                    <mat-icon id="iconButton" (click)="addUser()">add</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle [matMenuTriggerFor]="menu" id="iButton">
+                                    <mat-icon id="iconButton">more_vert</mat-icon>
+                                </mat-button-toggle>
+                                <mat-button-toggle id="iButton">
+                                    <mat-icon id="iconButton" (click)="onClear(true)">clear</mat-icon>
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div>
+                </div>
+                <!-- <mat-spinner></mat-spinner> -->
+
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6" fxLayout="row" fxFlexAlign="start center">
+                                    <label class="labelWidthD"><strong>Search by</strong></label>
+                                    <input id="searchBar" placeholder="Name, Role, E mail" [(ngModel)]="searchString"
+                                        (keyup)="searchItem()" maxlength="10"
+                                        class="form-control form-control-sm border border-secondary" autofocus />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card tableCard cardTop">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="table-scroll" id="exportTable">
+                                        <table border='1'>
+                                            <thead class="docs-primary-header">
+                                                <tr>
+                                                    <th id="headerSno">S.No</th>
+                                                    <th id="headerName">Name</th>
+                                                    <th id="headerName">Role</th>
+                                                    <th id="headerName">E mail</th>
+                                                    <th id="headerLast">Action</th>
+                                                    <th id="headerP">Password</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="datachange">
+                                                <tr *ngFor="let data of filteredUserList; let i = index;"
+                                                    [ngClass]="{'red': data.active === false}">
+                                                    <td id="columnCenter">
+                                                        {{i+1}}
+                                                    </td>
+                                                    <td id="columnLeft">{{data.user_name}}</td>
+                                                    <td id="columnLeft">{{data.user_role}}</td>
+                                                    <td id="columnLeft">{{data.user_email}}</td>
+                                                    <td id="columnCenter">
+                                                        <div>
+                                                            <button mat-icon-button color="primary" class="bSelect"
+                                                                (click)="editUser(data,false)"
+                                                                matTooltip="View this row"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="View this row"
+                                                                    class="f-14">remove_red_eye</mat-icon>
+                                                            </button>
+
+                                                            <button mat-icon-button color="primary" class="bSelect"
+                                                                matTooltip="Edit this row"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    (click)="editUser(data,true)"
+                                                                    aria-label="Edit this row"
+                                                                    class="f-14">edit</mat-icon>
+                                                            </button>
+                                                            <!-- <button mat-icon-button color="warn"
+                                                                matTooltip="Delete This Row" class="bSelect"
+                                                                (click)="deleteUser(i)"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="View Row" class="f-14">
+                                                                    delete
+                                                                </mat-icon>
+                                                            </button> -->
+                                                            <button mat-icon-button color="primary"
+                                                                matTooltip="Active this row" class="bSelect"
+                                                                (click)="onClickActiveUser(i)"
+                                                                [disabled]="data.active===true"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="Deactive this row"
+                                                                    class="f-14">check_circle</mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button color="primary"
+                                                                matTooltip="Deactive this row" class="bSelect"
+                                                                (click)="onClickDeactiveUser(i)"
+                                                                [disabled]="data.active===false"
+                                                                [matTooltipClass]="'custom-tip'">
+                                                                <mat-icon style="line-height: 22px;"
+                                                                    aria-label="Deactive this row"
+                                                                    class="f-14">cancel</mat-icon>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                    <td id="columnCenter">
+                                                        <label id="hide"><strong>Reset</strong></label>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card exitCard cardTop">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 right">
+                                    <button mat-raised-button id="matButton" color="warn"
+                                        (click)="onClear(true)">Exit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Export Function -->
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item   >
+            <i id="excel" class="fas fa-file-excel" aria-hidden="true"></i>
+            <span>Export To Excel</span>
+        </button>
+    </mat-menu>

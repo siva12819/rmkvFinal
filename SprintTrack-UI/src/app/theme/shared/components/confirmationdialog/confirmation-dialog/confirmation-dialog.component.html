@@ -1,0 +1,41 @@
+<div *ngIf="_data.confirmationDialog == 0" class="card" style="border:none;border-radius:opx;    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1), 0 10px 30px 0 rgba(0, 0, 0, 0.2);">
+    <div class="card-header docs-primary-header" style="border-radius:0px;padding:18px;padding-top:10px;padding-bottom: 13px;">
+        <div style="display: flex;flex-direction: row">
+            <p style="font-size:14px;font-weight: 600;color: white;margin-bottom: 0px;">{{componentName}}</p>
+        </div>
+        <div class="card-body" style="background-color: white;border-radius: 0px;margin-top:8px;margin-bottom:-5px;margin-left:-10px;margin-right:-10px">
+            <div class="card-body" style="margin-top:-10px;margin-bottom:-2px">
+                <div style="display: flex;flex-direction: row">
+                    <i class="material-icons" style="color: #D32F2F">info</i>&nbsp;
+                    <p style="font-size:14px;font-weight: 600;margin-top:3px">{{alertMessage}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" style="background-color: #e4e5e6;border-radius: 0px;margin-top:-10px;margin-bottom:-5px;margin-left:-10px;margin-right:-10px">
+            <div style="text-align:right;margin-top:-5px;margin-bottom:-6px;margin-right: -6px;">
+                <button mat-raised-button color="primary" (click)="dialogRefClose(true)" style="height: 30px;font-size:12px">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="_data.confirmationDialog == 1" class="card" style="border:none;border-radius:opx;box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1), 0 10px 30px 0 rgba(0, 0, 0, 0.2);">
+    <div class="card-header docs-primary-header" style="border-radius:0px;padding:18px;padding-top:10px;padding-bottom: 13px;">
+        <div style="display: flex;flex-direction: row">
+            <p style="font-size:14px;font-weight: 600;color: white;margin-bottom: 0px;">{{componentName}}</p>
+        </div>
+        <div class="card-body" style="background-color: white;border-radius: 0px;margin-top:8px;margin-bottom:-5px;margin-left:-10px;margin-right:-10px">
+            <div class="card-body" style="margin-top:-10px;margin-bottom:-2px">
+                <div style="display: flex;flex-direction: row">
+                    <i class="material-icons" style="color: #D32F2F">info</i>&nbsp;
+                    <p style="font-size:14px;font-weight: 600;margin-top:3px">{{confirmMessage}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" style="background-color: #e4e5e6;border-radius: 0px;margin-top:-10px;margin-bottom:-5px;margin-left:-10px;margin-right:-10px">
+            <div style="text-align:right;margin-top:-5px;margin-bottom:-6px;margin-right: -6px;">
+                <button mat-raised-button color="primary" (click)="_dialogRef.close(true)" style="height: 30px;font-size:12px">Yes</button>&nbsp;
+                <button mat-raised-button color="warn" (click)="_dialogRef.close(false)" style="height: 30px;font-size:12px">No</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <form [formGroup]="sprintForm" class="p-6 form-container">
+            <div class="centered-content new">
+                <div class="card" id="mainbox">
+                    <div class="card-header docs-primary-header" id="mainheader">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="height">{{Header}}Sprint Entry</div>
+                            </div>
+                            <div class="col-sm-6" id="right">
+                                <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                                    <mat-button-toggle id="iButton">
+                                        <mat-icon id="iconButton" (click)="onExit()">clear</mat-icon>
+                                    </mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12 important-field-container">
+                                        <label class="important-field-label"><strong>Sprint Name *</strong></label>
+                                        <input id="sprintName" maxlength="50" autocomplete="off"
+                                            formControlName="sprint_name"
+                                            class="form-control form-control-sm border border-secondary important-field" />
+                                    </div>
+                                </div>
+                                <div class="row Top">
+                                    <div class="col-sm-12">
+                                        <label><strong>Sprint Goal</strong></label>
+                                        <textarea id="sprintGoal" rows="3" style="height:auto;resize: none;"
+                                            maxlength="255" formControlName="sprint_goal"
+                                            class="form-control form-control-sm border border-secondary"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row Top">
+                                    <div class="col-sm-4">
+                                        <label class="labelWidthD"><strong>Start Date</strong></label>
+                                        <mat-form-field appearance="outline" class="example-full-width">
+                                            <input matInput [matDatepicker]="startPicker" id="advancedateStart"
+                                                formControlName="start_date" [max]="minStartDate" #autocompleteStart
+                                                autocomplete="off">
+                                            <mat-datepicker-toggle matSuffix
+                                                [for]="startPicker"></mat-datepicker-toggle>
+                                            <mat-datepicker #startPicker></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label class="labelWidthF"><strong>End Date</strong></label>
+                                        <mat-form-field appearance="outline" class="example-full-width">
+                                            <input matInput [matDatepicker]="endPicker" id="advancedateEnd"
+                                                formControlName="end_date" [min]="minEndDate" #autocompleteEnd
+                                                autocomplete="off">
+                                            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+                                            <mat-datepicker #endPicker></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4" [ngClass]="{'disabled': isDisabled}">
+                                        <label class="labelWidthE"><strong>Assigned Tickets</strong></label>
+                                        <select class="form-select form-select-sm border border-secondary"
+                                            [disabled]="isDisabled">
+                                            <option value="" disabled>--Select--</option>
+                                            <option *ngFor="let type of sprintTypes" [value]="type">{{type}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12" style="display: flex; align-items: center; gap: 16px;">
+                                        <label class="labelWidthC"><strong>Sprint Status</strong></label>
+                                        <mat-radio-group formControlName="sprint_status" aria-label="Select an option">
+                                            <mat-radio-button value="Active">Active</mat-radio-button>
+                                            <mat-radio-button value="Completed">Completed</mat-radio-button>
+                                            <mat-radio-button value="Archived">Archived</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card cardTop">
+                            <div class="card-body" style="height: 58px">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="upload-btn-wrapper">
+                                            <button class="btn" (click)="fileInput.click()">Attach File</button>
+                                            <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-8 right" *ngIf="this.receivedData == null">
+                                        <button id="matButton" mat-raised-button color="primary"
+                                            (click)="onSubmit()">Save</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn" (click)="onClear()">
+                                            Clear </button>
+                                    </div>
+                                    <div class="col-sm-8 right">
+                                        <button id="matButton" mat-raised-button color="primary"
+                                            *ngIf="!isview == false" (click)="onSubmit()">Update</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="!isview == false"
+                                            (click)="onClear()">Clear</button>
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="isview == false"
+                                            (click)="onExit()">Exit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<mat-menu #menu="matMenu">
+    <!-- <button (click)="exportToExcel()" mat-menu-item>
+        <i id="excel" class="fas fa-file-excel" aria-hidden="true"></i>
+        <span>Export To Excel</span>
+    </button> -->
+</mat-menu>

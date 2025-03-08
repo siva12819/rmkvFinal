@@ -1,0 +1,103 @@
+// --------------------- Screen Based CSS Start ------------------- //
+
+.new {
+    width: 1000px;
+}
+
+.view {
+    width: 1000px;
+}
+
+.list {
+    width: 1000px;
+}
+
+.mat-icon-button .mat-icon,
+.mat-icon-button i {
+    line-height: 20px;
+}
+
+#iRed {
+    height: 18px;
+    width: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.red {
+    color: rgb(250, 88, 88);
+}
+
+#iGreen {
+    height: 18px;
+    width: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+#iconBottom {
+    margin-bottom: -3px;
+}
+
+.checkTop {
+    margin-top: 29px;
+}
+
+#headerTwo {
+    width: 15%;
+}
+
+.toggleTop {
+    padding-top: 6px;
+}
+
+.labelWidthD {
+    padding-top: 12px;
+    margin-bottom: 0px;
+    min-width: 70px;
+}
+
+#matDate {
+    margin-top: 0px;
+    margin-bottom: -25px;
+    width: 150px;
+    color: white;
+}
+
+#headerLast {
+    width: 140px;
+}
+
+#headerP {
+    width: 80px;
+}
+
+#headerSno {
+    width: 1%;
+}
+
+.table-scroll th {
+    padding: 5px 10px;
+    border: 2px solid lightgray;
+}
+
+// --------------------- Screen Based CSS End ------------------- //
+
+// --------------------- Responsive Css Start ------------------- //
+
+@media only screen and (min-device-width: 1360px) and (max-device-width: 1366px) {
+
+    .card-body {
+        padding: 10px;
+    }
+
+    #cardTop {
+        margin-top: 100px;
+    }
+
+    .list {
+        width: 980px;
+    }
+}

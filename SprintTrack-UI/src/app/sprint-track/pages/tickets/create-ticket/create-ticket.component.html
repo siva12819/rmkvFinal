@@ -1,0 +1,130 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <form [formGroup]="ticketForm" class="p-6 form-container">
+            <div class="centered-content new">
+                <div class="card" id="mainbox">
+                    <div class="card-header docs-primary-header" id="mainheader">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="height">Ticket Entry
+                                </div>
+                            </div>
+                            <div class="col-sm-6" id="right">
+                                <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                                    <mat-button-toggle id="iButton">
+                                        <mat-icon id="iconButton" (click)="onClear(true)">clear</mat-icon>
+                                    </mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label><strong>Ticket Tittle</strong></label>
+                                        <input id='title' maxlength="50" autocomplete="off" formControlName="title"
+                                            class="form-control form-control-sm border border-secondary" />
+                                    </div>
+                                </div>
+                                <div class="row Top">
+                                    <div class="col-sm-12">
+                                        <label><strong>Description</strong></label>
+                                        <input id="textarea" rows="3" style="resize: none;" maxlength="255"
+                                            id="description" formControlName="description"
+                                            class="form-control form-control-sm border border-secondary" />
+                                    </div>
+                                </div>
+                                <div class="row Top">
+                                    <div class="col-sm-4">
+                                        <label><strong>Type</strong></label>
+                                        <select class="form-select form-select-sm border border-secondary" id="type"
+                                            formControlName="type">
+                                            <option value="" disabled>--Select--</option>
+                                            <option *ngFor="let type of ticketTypes" [value]="type">{{type}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label><strong>Priority</strong></label>
+                                        <select class="form-select form-select-sm border border-secondary" id="priority"
+                                            formControlName="priority">
+                                            <option value="" disabled>--Select--</option>
+                                            <option *ngFor="let priority of priorities" [value]="priority">{{priority}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label><strong>Status</strong></label>
+                                        <select class="form-select form-select-sm border border-secondary" id="statuses"
+                                            formControlName="status">
+                                            <option value="" disabled>--Select--</option>
+                                            <option *ngFor="let status of statuses" [value]="status.name">
+                                                {{status.name}}</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row Top">
+                                    <div class="col-sm-4">
+                                        <label><strong>Assignee</strong></label>
+                                        <select class="form-select form-select-sm border border-secondary" id="assignee"
+                                            formControlName="assignee">
+                                            <option value="" disabled>--Select--</option>
+                                            <option *ngFor="let assignee of teamMembers" [value]="assignee.user_id">
+                                                {{assignee.user_name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label><strong>Sprint</strong></label>
+                                        <select class="form-select form-select-sm border border-secondary" id="sprint"
+                                            formControlName="sprint">
+                                            <option value="" disabled>--Select--</option>
+                                            <option *ngFor="let sprint of sprints" [value]="sprint.sprint_id">
+                                                {{sprint.sprint_name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label><strong>Estimated Time (hours) </strong></label>
+                                        <input maxlength="50" autocomplete="off" id="estimated"
+                                            style="padding-right: 4px;" (click)="selectInputValue()"
+                                            formControlName="estimated"
+                                            class="form-control form-control-sm border border-secondary right" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card cardTop">
+                            <div class="card-body" style="height: 58px">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="upload-btn-wrapper">
+                                            <button class="btn" (click)="onclickview()">Attach File</button>
+                                            <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 right" *ngIf="this.receivedData == null">
+                                        <button id="matButton" mat-raised-button color="primary"
+                                            (click)="onSubmit()">Save</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn"
+                                            (click)="onClear(false)">Clear</button>
+                                    </div>
+                                    <div class="col-sm-8 right">
+                                        <button id="matButton" mat-raised-button color="primary"
+                                            *ngIf="!isview == false" (click)="onSubmit()">Update</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="!isview == false"
+                                            (click)="onClear(false)">Clear</button>
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="isview == false" S
+                                            (click)="onExit()">Exit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

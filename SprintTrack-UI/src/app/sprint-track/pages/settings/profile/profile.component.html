@@ -1,0 +1,88 @@
+<div class="outer-container">
+    <div class="inner-container">
+        <form [formGroup]="profileFrom" class="p-6 form-container">
+            <div class="centered-content new">
+                <div class="card" id="mainbox">
+                    <div class="card-header docs-primary-header" id="mainheader">
+                        <div class="row">
+                            <div class="col-sm-8 col-70">
+                                <div id="height">Profile</div>
+                            </div>
+                            <div class="col-sm-4 col-30 right">
+                                <mat-button-toggle-group id="group" #group="matButtonToggleGroup">
+                                    <mat-button-toggle id="iButton">
+                                        <mat-icon id="iconButton" (click)="onClear(true)">clear</mat-icon>
+                                    </mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card entryCard">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>User Name</strong></label>
+                                        <input type="text" id="userName"
+                                            class="form-control form-control-sm border border-secondary"
+                                            formControlName="user_name">
+                                    </div>
+                                    <div class="col-sm-12 cardTop" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>Email</strong></label>
+                                        <input type="text" id="userEmail"
+                                            class="form-control form-control-sm border border-secondary"
+                                            formControlName="user_email">
+                                    </div>
+                                    <div class="col-sm-12 cardTop" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>Role</strong></label>
+                                        <select id="Role" class="form-select form-select-sm border border-secondary"
+                                            formControlName="user_role">
+                                            <option>Select</option>
+                                            <option>User</option>
+                                            <option>Admin</option>
+                                            <option>Manager</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 cardTop" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthD"><strong>Password</strong></label>
+                                        <input type="text" id="userPassword"
+                                            class="form-control form-control-sm border border-secondary"
+                                            formControlName="user_password">
+                                    </div>
+                                    <div class="col-sm-12 cardTop" fxLayout="row" fxFlexAlign="start center">
+                                        <label class="labelWidthC"><strong>Notification</strong></label>
+                                        <mat-radio-group aria-label="Select an option"
+                                            formControlName="user_notification">
+                                            <mat-radio-button value='Email'>Email</mat-radio-button>
+                                            <mat-radio-button value='App'>App</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card entryCard cardTop">
+                            <div class="card-body" style="height: 58px;">
+                                <div class="row">
+                                    <div class="col-sm-12 right" *ngIf="this.receivedData == null">
+                                        <button id="matButton" mat-raised-button color="primary"
+                                            (click)="onSubmit()">Save</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn" 
+                                            (click)="onClear(false)">Clear </button>
+                                    </div>
+                                    <div class="col-sm-12 right">
+                                        <button id="matButton" mat-raised-button color="primary"
+                                            *ngIf="!isview == false" (click)="onSubmit()">upadte</button>&nbsp;
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="!isview == false"
+                                        (click)="onClear(false)">Clear</button>
+                                        <button id="matButton" mat-raised-button color="warn" *ngIf="isview == false"
+                                        (click)="onExit()">Exit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

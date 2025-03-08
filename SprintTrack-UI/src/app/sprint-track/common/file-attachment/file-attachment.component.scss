@@ -1,0 +1,462 @@
+.mat-icon-button .mat-icon,
+.mat-icon-button i {
+  line-height: 20px;
+}
+
+input:disabled {
+  background-color: aliceblue;
+}
+
+.list {
+  width: 800px;
+}
+
+/* Table Css End */
+
+#top {
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+@media screen and (max-width: 500px) {
+  .new {
+    width: 100%;
+  }
+
+  .list {
+    width: 100%;
+  }
+}
+
+.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+  color: white;
+}
+
+// .card-body {
+//   background-color: white;
+// }
+
+.form-control {
+  border-radius: 0px;
+  background-color: white;
+}
+
+#textarea {
+  text-align: justify;
+}
+
+/* active */
+
+//Active
+
+.toggle-button-cover {
+  display: table-cell;
+  position: relative;
+  width: 200px;
+  height: 140px;
+  box-sizing: border-box;
+}
+
+.button-cover {
+  height: 100px;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px -8px #c5d6d6;
+  border-radius: 4px;
+}
+
+.button-cover:before {
+  counter-increment: button-counter;
+  content: counter(button-counter);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #d7e3e3;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px;
+}
+
+.button-cover,
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  position: relative;
+  top: 50%;
+  width: 100px;
+  height: 28px;
+  margin: -21px auto 0 39px;
+  overflow: hidden;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+}
+
+.button.b2 {
+  border-radius: 2px;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+/* Button 10 */
+#button-10 .knobs:before,
+#button-10 .knobs:after,
+#button-10 .knobs span {
+  position: absolute;
+  top: 3.7px;
+  width: 40px;
+  height: 22px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 5px 4px;
+  border-radius: 2px;
+  transition: 0.3s ease all;
+}
+
+#button-10 .knobs:before {
+  content: "";
+  left: 4px;
+  background-color: #03a9f4;
+}
+
+#button-10 .knobs:after {
+  content: "NO";
+  right: 4px;
+  color: #4e4e4e;
+}
+
+#button-10 .knobs span {
+  display: inline-block;
+  left: 4px;
+  color: #fff;
+  z-index: 1;
+}
+
+#button-10 .checkbox:checked+.knobs span {
+  color: #4e4e4e;
+}
+
+#button-10 .checkbox:checked+.knobs:before {
+  left: 54px;
+  background-color: #f44336;
+}
+
+#button-10 .checkbox:checked+.knobs:after {
+  color: #fff;
+}
+
+#button-10 .checkbox:checked~.layer {
+  background-color: #fcebeb;
+}
+
+// Active
+.hide {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+
+#cardPadding {
+  padding: 15px;
+}
+
+#subCardPadding {
+  padding: 15px;
+}
+
+#matDate {
+  margin-top: -14px;
+  margin-bottom: -17px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: -19px;
+}
+
+.btn {
+  // border: 2px solid gray;
+  color: gray;
+  background-color: lightgrey;
+  padding: 3px 30px;
+  border-radius: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  // line-height:1.7
+}
+
+.btn {
+  line-height: 1.7;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/* Editable Table*/
+
+.table-scroll {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto;
+  height: 216px;
+  font-family: "Roboto", sans-serif;
+}
+
+.table-scroll table {
+  width: 100%;
+  min-width: 100px;
+  margin: auto;
+  border-collapse: collapse;
+  border: 0.5px solid lightgray;
+  border-spacing: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.table-wrap {
+  position: relative;
+}
+
+.table-scroll th {
+  padding: 5px 10px;
+  border: 0.5px solid lightgray;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.table-scroll td {
+  padding: 0px;
+  padding-right: 0px;
+  border: 0.5px solid lightgray;
+  background-color: white;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.table-scroll thead th {
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  font-family: "Roboto", sans-serif;
+}
+
+th.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  font-family: "Roboto", sans-serif;
+}
+
+thead th.sticky {
+  z-index: 5;
+  font-family: "Roboto", sans-serif;
+}
+
+.table-scroll thead tr:nth-child(2) th {
+  top: 29px;
+  font-family: "Roboto", sans-serif;
+}
+
+#intbl {
+  width: 100%;
+  border: 0px;
+  padding: 0%;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 4px;
+  padding-left: 4px;
+  height: 27px;
+}
+
+input#intbl:focus {
+  outline: none;
+  outline-color: white;
+}
+
+.intbl {
+  width: 100%;
+  border: 0px;
+  padding: 0%;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 4px;
+  padding-left: 4px;
+  height: 27px;
+}
+
+input.intbl:focus {
+  outline: none;
+  outline-color: white;
+}
+
+td {
+  padding: 0px;
+  font-size: 12px;
+  background-color: white;
+}
+
+th {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  font-family: roboto;
+}
+
+.table td {
+  padding-top: 0px !important;
+  background-color: white;
+}
+
+p {
+  font-size: 12px;
+}
+
+#addbtn {
+  background-color: white;
+  width: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 15px;
+  min-height: 25px;
+}
+
+#addbtn:focus {
+  outline: none;
+  outline-color: white;
+  box-shadow: inset 0px 0px 0px 2px rgb(127, 179, 228);
+}
+
+#delbtn {
+  background-color: white;
+  width: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 15px;
+  min-height: 25px;
+  /* margin-top: 3px; */
+}
+
+#delbtn:focus {
+  outline: none;
+  outline-color: white;
+  box-shadow: inset 0px 0px 0px 2px rgb(127, 179, 228);
+}
+
+#DescInput {
+  width: 93px;
+  margin: 0px;
+  height: 20px;
+  margin-top: -10px;
+  border-bottom: 0px;
+}
+
+.table-bordered thead td,
+.table-bordered thead th {
+  border-bottom-width: 2px;
+  vertical-align: middle;
+}
+
+.form-control:focus {
+  outline: none;
+  outline-color: white;
+  box-shadow: inset 0px 0px 0px 2px rgb(127, 179, 228);
+  border-radius: 0px;
+}
+
+.form-control {
+  font-size: 12px;
+  border-radius: 0px;
+  color: black;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  outline-color: white;
+  box-shadow: inset 0px 0px 0px 2px rgb(127, 179, 228);
+  border-radius: 0px;
+}
+
+/*Editable Table End*/
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: -5px;
+}
+
+.btn {
+  // border: 2px solid gray;
+  color: gray;
+  background-color: lightgrey;
+  padding: 3px 30px;
+  border-radius: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  // line-height:1.7
+}
+
+.btn {
+  line-height: 1.7;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+#color {
+  margin-bottom: 0px;
+  padding-top: 11px;
+  color: red;
+  cursor: pointer;
+}
